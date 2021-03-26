@@ -4,3 +4,4 @@ g :: Num a => a -> a
 g = f 3
 -- Equal to
 g_ = \y -> 3*3 + y*y
+main = print (g_ 3)
