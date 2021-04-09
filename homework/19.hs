@@ -3,7 +3,7 @@ upart' _ 0 = [[]]
 upart' 0 _ = [[]]
 upart' 1 _ = [[1]]
 upart' n 1 = [take n [1,1..]]
-upart' target max_elem = concat [map (\l -> [x] ++ l) (upart' (target - x) x) | x <- [lim',(lim'-1)..1]]
+upart' target max_elem = concat [map (x:) (upart' (target - x) x) | x <- [lim',(lim'-1)..1]]
     where
     lim' = min target max_elem
 

@@ -1,7 +1,7 @@
 part :: Int -> Int -> [[Int]]
 part 1 n = [[n]]
 part n 0 = [take n [0,0..0]]
-part m n = concat [map (\l -> [x] ++ l) (part (m - 1) (n - x)) | x <- [1..n]]
+part m n = concat [map (x:) $ part (m - 1) (n - x) | x <- [1..n]]
 -- *Main> part 3 5
 -- [[1,1,3],[1,2,2],[1,3,1],[1,4,0],[2,1,2],[2,2,1],[2,3,0],[3,1,1],[3,2,0],[4,1,0],[5,0,0]]
 -- *Main> part 4 7
