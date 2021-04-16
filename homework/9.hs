@@ -23,9 +23,7 @@ null' _ = False
 -- f
 elem' :: Eq a => a -> [a] -> Bool
 elem' _ [] = False
-elem' elem (x:xs) 
-    | x == elem = True
-    | otherwise = elem' elem xs
+elem' el' (x:xs) = x == el' || elem' el' xs
 -- g
 -- at' :: [a] -> Int -> a
 at' (x:xs) 0 = x
