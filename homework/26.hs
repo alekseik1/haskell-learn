@@ -1,5 +1,8 @@
+foldr1' :: (a -> a -> a) -> [a] -> a
+foldr1' f xs = foldr f (last xs) (init xs)
+
 lmax' :: Ord a => [a] -> a
-lmax' = foldr1 (\x acc -> if x >= acc then x else acc)
+lmax' = foldr1' (\x acc -> if x >= acc then x else acc)
 
 assert_equal expected actual = 
     if expected == actual
