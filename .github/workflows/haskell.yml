@@ -22,3 +22,30 @@ jobs:
         with:
           ghc-version: ${{ matrix.ghc }}
       - run: runhaskell homework/${{ matrix.task }}.hs
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        ghc: ['latest']
+        os: [ubuntu-latest]
+        task: [
+          '18.hs',
+          '28.hs',
+          '29.hs',
+          '26.hs',
+          '36.hs',
+          '33.hs',
+          '27.hs',
+          '30.hs',
+          '34.hs',
+          '35.hs',
+          '31.hs',
+        ]
+    name: test ${{ matrix.task }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Haskell
+        uses: haskell/actions/setup@v1
+        with:
+          ghc-version: ${{ matrix.ghc }}
+      - run: runhaskell homework/${{ matrix.task }}.hs
