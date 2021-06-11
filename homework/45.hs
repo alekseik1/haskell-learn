@@ -83,5 +83,3 @@ mainWithArgs a = (readInputFile a) >>=
                  (return . (sortAscDesc (argSortOrder a))) >>=
                  (return . unlines) >>=
                  (writeOutputFile a)
-
-main = print "ok"
