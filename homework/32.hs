@@ -2,7 +2,8 @@
 -- h :: D -> C
 -- f :: A -> B -> C
 -- f x y = h (g x y)
--- dot (.)
--- f = h . g
+-- uncurry g :: (a, b) -> d
+-- h . (uncurry g) :: (a, b) -> c
+-- f = curry $ h . (uncurry g)
 
 main = print "ok"
